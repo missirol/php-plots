@@ -23,7 +23,7 @@ body {
           width: 76%;
           padding-left: 12%;        
           padding-top: 0.5ex;
-          color : #3B8686;
+          color : #30235C;
 }
 
 #footer {
@@ -61,13 +61,13 @@ body {
 } 
 
 a { 
-    color: #1B9898;
+    color: #30235C;
     text-decoration:  none;
 }
 
 a:hover { 
-          color: #24CACA;
-          background: #1B9898;
+          color: #DFDAF1;
+          background: #271C4A;
 
 }
 

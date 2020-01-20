@@ -4,6 +4,12 @@
 body {
     background: white;
 }
+
+h1 {
+    font-size: 16pt;
+    color: #808080;
+}
+
 div.pic h3 { 
     font-size: 11pt;
     margin: 0.5em 1em 0.2em 1em;
@@ -50,6 +56,20 @@ div.dirlinks a {
     display : block;
 }
 .txt_cont:hover{
+    display : block;
+}
+.fname_cont {
+    display : none;
+    white-space:pre-wrap;
+    position: absolute;
+    top: 3.5ex;
+    background : white;
+    border : 1px solid #466603;
+}
+.fname:hover .fname_cont {
+    display : block;
+}
+.fname_cont:hover {
     display : block;
 }
 
