@@ -296,9 +296,17 @@ foreach ($allfiles as $filename) {
 </div>
 
 <hr />
+<!--
 <p>
 Like this page? <a href="https://github.com/musella/php-plots">Get it here.</a><br />
 Credits: Giovanni Petrucciani.
+</p>
+-->
+<p>
+	<font size="2">
+Like this page? <a href="https://github.com/musella/php-plots">Get it here.</a><br />
+Credits: Giovanni Petrucciani.
+</font>
 </p>
 </body>
 </html>

@@ -6,9 +6,12 @@ body {
        margin: 0px;
        font-family: arial, helvetica;
        font-weight: 600; 
-       font-size: 15px;
+       font-size: 18px;
        border-color : #2E457B;
+/*
        color : #43307F;
+*/
+       color : #7a8b99;
        background-image:url('background.png');
        /* background : #DEF5AD; */
 	
@@ -61,13 +64,22 @@ body {
 } 
 
 a { 
+/*
     color: #30235C;
+*/
+    color: #00A6EB;
     text-decoration:  none;
 }
 
 a:hover { 
+/*
           color: #DFDAF1;
+*/
+          color: #F28E00;
+/*
           background: #271C4A;
+*/
+          background: #00A6EB;
 
 }
 
