@@ -1,13 +1,12 @@
 /* <![CDATA[ */
 
-
 body {
     background: white;
 }
 
 h1 {
     font-size: 25pt;
-    color: #F28E00;
+    color: #000000;
 }
 
 div.pic h3 { 
@@ -21,94 +20,61 @@ div.pic p {
 
 div.pic {
     display: block;
-       	background: white;
+    background: white;
     float: left;
-/*
-    border : 2px dashed #466603;
-*/
-    border : 2px solid #777777;
-    margin : 0.5ex;
-    padding : 0;
+    border: 2px solid #777777;
+    margin: 0.5ex;
+    padding: 0;
     -moz-border-radius: 2ex;
     -webkit-border-radius: 2ex;
     -khtml-border-radius: 2ex;
     border-radius: 2ex;
-/*
-    -moz-box-shadow: 7px 5px 5px rgb(80,80,80);    /* Firefox 3.5 */
-*/
-/*
-    -webkit-box-shadow: 7px 5px 5px rgb(80,80,80); /* Chrome, Safari */
-*/
-/*
-    box-shadow: 7px 5px 5px rgb(80,80,80);         /* New browsers */  
-*/
     text-align: center;
     position:relative;
 }
 
-/*
-div.dirlinks h2 {  margin-bottom: 4pt; margin-left: -24pt; color: rgb(80,0,0);  }
-*/
-div.dirlinks h2 {  margin-bottom: 4pt; margin-left: -24pt; color: rgb(242,142,0);  }
+div.dirlinks h2 {  margin-bottom: 4pt; margin-left: -24pt; color: #000000;  }
 div.dirlinks {  margin: 0 24pt; } 
 div.dirlinks a {
-/*
-    font-size: 11pt; font-weight: bold;
-*/
     font-size: 14pt; font-weight: bold;
     padding: 0 0.5em; 
 }
-.button:hover { cursor : pointer; }
+.button:hover { cursor: pointer; }
 .txt_cont {
-    display : none;
+    display: none;
     white-space:pre-wrap;
     position: absolute;
-    bottom : 3ex;
-    background : white;
-/*
-    border : 2px dashed #466603;
-*/
-    border : 2px solid #777777;
+    bottom: 3ex;
+    background: white;
+    border: 2px solid #777777;
 }
 .txt:hover  .txt_cont {
-    display : block;
+    display: block;
 }
 .txt_cont:hover{
-    display : block;
+    display: block;
 }
 .fname_cont {
-    display : none;
+    display: none;
     white-space:pre-wrap;
     position: absolute;
     top: 3.5ex;
-    background : white;
-/*
-    border : 1px solid #466603;
-*/
-    border : 1px solid #777777;
+    background: white;
+    border: 1px solid #777777;
 }
 .fname:hover .fname_cont {
-    display : block;
+    display: block;
 }
 .fname_cont:hover {
-    display : block;
+    display: block;
 }
 
 img {
-/*
-    width : 40ex;
-*/
-    width : 80ex;
-/*
-    border-color : #466603;
-*/
-    border-color : #777777;
-/*
-    border : 2px dashed #466603;
-*/
-    border : 2px dashed #777777;
-    margin : 0.5ex;
-    padding : 0;
+    width: 80ex;
+    border-color: #777777;
+    border: 2px dashed #777777;
+    margin: 0.5ex;
+    padding: 0;
     -moz-border-radius: 2ex;
     -webkit-border-radius: 2ex;
     -khtml-border-radius: 2ex;
@@ -116,11 +82,11 @@ img {
 }
 
 img:hover {
-    cursor : ne-resize; 
+    cursor: ne-resize; 
 }
 
 img.wide:hover {
-    cursor : sw-resize; 
+    cursor: sw-resize; 
 }
 
 /* ]]> */
