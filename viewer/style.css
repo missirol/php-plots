@@ -5,12 +5,12 @@ body {
 }
 
 h1 {
-    font-size: 25pt;
+    font-size: 10pt;
     color: #000000;
 }
 
 div.pic h3 { 
-    font-size: 14pt;
+    font-size: 10pt;
     margin: 0.5em 1em 0.2em 1em;
 }
 div.pic p {
@@ -33,7 +33,7 @@ div.pic {
     position:relative;
 }
 
-div.dirlinks h2 {  margin-bottom: 4pt; margin-left: -24pt; color: #000000;  }
+div.dirlinks h2 {  font-size: 18pt; margin-bottom: 4pt; margin-left: -24pt; color: #000000;  }
 div.dirlinks {  margin: 0 24pt; } 
 div.dirlinks a {
     font-size: 14pt; font-weight: bold;
@@ -70,7 +70,8 @@ div.dirlinks a {
 }
 
 img {
-    width: 80ex;
+    height: 50ex;
+    width: 50ex;
     border-color: #777777;
     border: 2px dashed #777777;
     margin: 0.5ex;

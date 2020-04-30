@@ -69,11 +69,11 @@ $script_path = str_replace("//","/","/".$script_path);
 chdir( $target_folder  )
 ?>
 
-<link rel="stylesheet" type="text/css" href="<?php echo $script_path."/plot-viewer/theme.css"; ?>" />
-<link rel="stylesheet" type="text/css" href="<?php echo $script_path."/plot-viewer/style.css"; ?>" />
-<script language="javascript" type="text/javascript" src="<?php echo $script_path."/plot-viewer/jquery.js" ?>" ></script>
-<script language="javascript" type="text/javascript" src="<?php echo $script_path."/plot-viewer/jquery-ui.js" ?>" ></script>
-<script language="javascript" type="text/javascript" src="<?php echo $script_path."/plot-viewer/style.js" ?>" ></script>
+<link rel="stylesheet" type="text/css" href="<?php echo $script_path."/viewer/theme.css"; ?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo $script_path."/viewer/style.css"; ?>" />
+<script language="javascript" type="text/javascript" src="<?php echo $script_path."/viewer/jquery.js" ?>" ></script>
+<script language="javascript" type="text/javascript" src="<?php echo $script_path."/viewer/jquery-ui.js" ?>" ></script>
+<script language="javascript" type="text/javascript" src="<?php echo $script_path."/viewer/style.js" ?>" ></script>
 <script language="javascript" type="text/javascript">
 $(function() {
     $(".numbers-row").append('<span class="button">+</span>&nbsp;&nbsp;<span class="button">-</span>');
@@ -122,7 +122,7 @@ sort($folders);
 
 if ($has_subs) {
     print "<div class=\"dirlinks\">\n";
-    print "<h2>Subfolders\n";
+    print "<h2>Dirs\n";
     if( ! $_GET['depth'] || intval($_GET['depth']<2) ) {
         print " <a href=\"?".$_SERVER['QUERY_STRING']."&depth=2\">(show plots in subfolders)</a>\n";
     } else {
@@ -130,7 +130,7 @@ if ($has_subs) {
     }
     print "</h2>\n";
     foreach ($folders as $filename) {
-        if ($filename != "plot-viewer") {
+        if ( ($filename != "viewer") && ($filename != "jsroot") ) {
             print " <a href=\"$filename\">[$filename]</a><br />";
         }
     }
@@ -161,7 +161,7 @@ if( $bookm != "" ) {
 ?>
 
 <h2><a name="plots">Plots</a></h2>
-<p><form>Filter: <input type="text" name="match" size="30"  value="<?php if (isset($_GET['match'])) print htmlspecialchars($_GET['match']);  ?>" />
+<p><form>Filter: <input type="text" name="match" size="30" value="<?php if (isset($_GET['match'])) print htmlspecialchars($_GET['match']);  ?>" />
 <input type="Submit" value="Go" />
 <div class="numbers-row">
 <label for="name">Levels to show</label>
@@ -269,8 +269,10 @@ if ($_GET['noplots']) {
         //~ print "</div>";
     //~ }
 
-	$other_exts = array('.pdf', '.cxx', '.eps', '.ps', '.root', '.txt', ".C");
-	$main_exts = array('.png','.gif','.jpg','.jpeg');
+        $other_exts = array('.pdf', '.cxx', '.eps', '.ps', '.txt', '.C', '.root');
+        $main_exts = array('.png','.gif','.jpg','.jpeg');
+#       $other_exts = array('.cxx', '.eps', '.ps', '.txt', '.C', '.root');
+#       $main_exts = array('.pdf', '.png','.gif','.jpg','.jpeg');
 	$folders = array('*');
 	if( intval($_GET['depth'])>1 ) {
 		$wildc="*";
@@ -326,7 +328,8 @@ if ($_GET['noplots']) {
 		print "<div class='pic'>\n";
 		print "<h3><a href=\"$filename\">$short_filename</a></h3>";
 		// print "<a href=\"$filename\">";
-		print "<img src=\"$imgname\" style=\"border: none; width: 40ex; \">";
+                print "<img src=\"$imgname\" style=\"border: none; width: 40ex; height: 40ex;\">";
+#                print "<iframe src=\"$imgname\" style=\"border: none; width: 33ex; height: 33ex;\"></iframe>";
 		// print "</a>";
 		                                         foreach ($other_exts as $ex) {
 			                                 $other_filename = $path_parts['filename'].$ex;
@@ -363,39 +366,36 @@ if ($_GET['noplots']) {
 </div>
 
 <div style="display: block; clear:both;">
-<h2><a name="files">Other files</a></h2>
+<h2><a name="files">Other Files</a></h2>
 <ul>
 <?
 foreach ($allfiles as $filename) {
-    if ( $_GET['noplots'] || (!in_array($filename, $displayed)) ) {
-        /// if (isset($_GET['match']) && !fnmatch('*'.$_GET['match'].'*', $filename)) continue;
-        if( ! $matchf($match,$filename) ) { continue; }
-        if( fnmatch("*_thumb.*", $filename) ) {
-            continue;
-        }
-        if ( $filename == "index.php" ) { continue; }
-        if ( substr($filename,-1) == "~" ) { continue; }
-        if (is_dir($filename)) {
-            //~ // print "<li>[DIR] <a href=\"$filename\">$filename</a></li>";
-        //~ } else {
-            //~ print "<li><a href=\"$filename\">$filename</a></li>";
-		// print "<li>[DIR] <a href=\"$filename\">$filename</a></li>";
-   } else {
-   print "<li><a href=\"https://missirol.web.cern.ch/missirol/jsroot/index.htm?file=$folder/$filename\">$filename</a></li>";
-   # print "<li><a href=\"$filename\">$filename</a></li>";
-        }
+  if ( $_GET['noplots'] || (!in_array($filename, $displayed)) ) {
+    if( (! $matchf($match,$filename)) || fnmatch("*_thumb.*", $filename) || fnmatch("*.png", $filename) ||
+        fnmatch("index*.php", $filename) || fnmatch("README*.*", $filename) || fnmatch("readme*.*", $filename) ||
+        ($filename == "viewer") || (substr($filename,-1) == "~") ) {
+      continue;
     }
+
+    if (is_dir($filename)) {
+#      print "<li>[D] <a href=\"$filename\">$filename</a></li>";
+    } else {
+      print "<li>[F] <a href=\"https://missirol.web.cern.ch/missirol/jsroot/index.htm?file=$folder/$filename\">$filename</a></li>";
+    }
+  }
 }
 ?>
 </ul>
 </div>
 
 <hr />
+<!--
 <p>
 <font size="1">
 Forked from <a href="https://github.com/musella/php-plots">here.</a><br />
 Original Author: <a href="https://github.com/gpetruc">Giovanni Petrucciani.</a><br />
 </font>
 </p>
+-->
 </body>
 </html>
