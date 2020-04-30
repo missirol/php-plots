@@ -328,7 +328,7 @@ if ($_GET['noplots']) {
 		print "<div class='pic'>\n";
 		print "<h3><a href=\"$filename\">$short_filename</a></h3>";
 		// print "<a href=\"$filename\">";
-                print "<img src=\"$imgname\" style=\"border: none; width: 40ex; height: 40ex;\">";
+                print "<img src=\"$imgname\" style=\"border: none; width: 40ex; height: 35ex;\">";
 #                print "<iframe src=\"$imgname\" style=\"border: none; width: 33ex; height: 33ex;\"></iframe>";
 		// print "</a>";
 		                                         foreach ($other_exts as $ex) {
