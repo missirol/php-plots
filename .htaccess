@@ -1,4 +1,4 @@
-## CERN Signle sign-on
+## CERN Single Sign-On
 ## Uncomment if you want to restrict the access to your files
 #
 # ShibRequireAll On
@@ -16,12 +16,6 @@
 
 ## END CERN SSO
 
-## Tell Apache this is the web index
-##
-# Put below the path to your index.php (starting from the server root)
-# eg /musella/higgs/index.php
-DirectoryIndex index.php index.html index.htm
-
 SSLRequireSSL
 AuthType shibboleth
 ShibRequireSession On
@@ -32,4 +26,4 @@ Require valid-user
 Require ADFS_GROUP "cms-web-access"
 
 Options +Indexes
-DirectoryIndex index.php index.html index.htm /missirol/index.php
+DirectoryIndex /missirol/index.php
